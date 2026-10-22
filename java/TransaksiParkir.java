@@ -22,15 +22,14 @@ public class TransaksiParkir {
      }
 
      public void prosesTransaksi() {
-        int tarifPerJam = kendaraan.getjenis().equals("Motor") ? 2000 : 5000;
-        int totalBiaya = tarifPerJam *jam;
+        double total = kendaraan.hitungbiaya(jam);
 
         System.out.println("--- Memproses Transaksi ---");
         System.out.println("Jenis Kendaraan : " + kendaraan.getjenis());
         System.out.println("Plat Nomor      : " + kendaraan.getnomorPlat());
         System.out.println("Durasi Parkir   : " + jam + " jam");
-        System.out.println("Total Biaya     : Rp " + totalBiaya);
-        pembayaran.bayar(totalBiaya);
+        System.out.println("Total Biaya     : Rp " + total);
+        pembayaran.bayar(total);
         System.out.println("---------------------------\n");
     }   
 
